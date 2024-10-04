@@ -56,3 +56,42 @@ Esse é o schema (model) de Tarefa, utilizado para passar para os métodos que e
 
 ## Solução
 O código está pela metade, e você deverá dar continuidade obedecendo as regras descritas acima, para que no final, tenhamos um programa funcional. Procure pela palavra comentada "TODO" no código, em seguida, implemente conforme as regras acima.
+
+
+## Desafio Concluido: Implementações
+
+Este projeto é um sistema gerenciador de tarefas desenvolvido como uma API Web utilizando .NET e Entity Framework. Ele permite criar, listar, atualizar e excluir tarefas, organizando-as de maneira eficiente. As tarefas possuem campos como título, descrição, data de execução e status (Pendente ou Concluído).
+
+O campo *Status* utiliza um enum chamado *EnumStatusTarefa* para definir se a tarefa está "Pendente" ou "Concluída".
+
+**Endpoints Implementados**
+*GET /Tarefa/{id}*
+Busca uma tarefa pelo seu ID. Se a tarefa não for encontrada, retorna 404 Not Found.
+
+*GET /Tarefa/ObterTodos*
+Retorna todas as tarefas cadastradas.
+
+*GET /Tarefa/ObterPorTitulo?titulo={titulo}*
+Busca tarefas cujo título contenha a string informada.
+
+*GET /Tarefa/ObterPorData?data={data}*
+Retorna as tarefas agendadas para uma data específica.
+
+*GET /Tarefa/ObterPorStatus?status={status}*
+Retorna as tarefas de acordo com o status informado (Pendente ou Concluído).
+
+*POST /Tarefa*
+Cria uma nova tarefa. Caso a data da tarefa seja inválida (vazia), retorna 400 Bad Request. Após a criação, retorna o ID da tarefa criada.
+
+*PUT /Tarefa/{id}*
+Atualiza uma tarefa existente. Caso a tarefa não seja encontrada ou a data seja inválida, retorna 404 Not Found ou 400 Bad Request, respectivamente.
+
+*DELETE /Tarefa/{id}*
+Remove uma tarefa do sistema. Se a tarefa não for encontrada, retorna 404 Not Found.
+
+**Migrações e Banco de Dados**
+O sistema utiliza o *Entity Framework* para gerenciar a persistência das tarefas em um banco de dados. As migrações foram configuradas e aplicadas corretamente, garantindo a criação das tabelas necessárias.
+
+**Configurações Adicionais**
+O projeto foi configurado para utilizar o *Swagger* para documentação e teste dos endpoints.
+Foi configurado para rodar sob HTTPS, necessitando a aceitação do certificado SSL ao acessar via navegador.
